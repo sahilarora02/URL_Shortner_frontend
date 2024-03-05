@@ -1,0 +1,101 @@
+/* styles.css */
+
+.main-container {
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, #3f3cbb, #5a55ae);
+    /* padding-top: 50px; */
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .button {
+    background-color: #fff;
+    color: #5a55ae;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+  }
+  
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+    /* margin-top: 100px; */
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color:white
+  }
+  
+  .description {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #ccc;
+  }
+  
+  .input-message {
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .input-container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    width: 300px;
+    height: 30px;
+  }
+  
+  .shorten-button {
+    background-color: #ff8c37;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  .shorten-button:hover{
+    background-color: #dacec5;
+    padding: 0.5rem 1rem;
+    color: #bb3a3a;
+    border: 1px solid blue;
+    border-radius: 0.25rem;
+  }
+  
+.shortened-url-container {
+  margin-top: 20px;
+}
+
+.shortened-url {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
