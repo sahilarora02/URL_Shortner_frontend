@@ -29,7 +29,7 @@ const MainPage = () => {
         body: JSON.stringify({ URL }),
       });
       if (response.ok) {
-      const domain =   extractDomain(URL);
+        const domain = extractDomain(URL);
         const data = await response.json();
         setShortenedURL(data.new_url);
         const newUrlList = [...urlList, { domain: domain, shortenedURL: data.new_url }];
@@ -64,7 +64,7 @@ const MainPage = () => {
           <div className="shortened-url-container">
             <p className="short-url-text">
               Shortened URL :
-              <a href="#" onClick={()=>handleShortenedUrlClick(shortenedURL)} target="_blank" rel="noopener noreferrer" className="shortened-url">
+              <a href="#" onClick={() => handleShortenedUrlClick(shortenedURL)} target="_blank" rel="noopener noreferrer" className="shortened-url">
                 {shortenedURL}
               </a>
             </p>
@@ -85,9 +85,9 @@ const MainPage = () => {
                 <tr key={index}>
                   <td>{item.domain}</td>
                   <td>
-                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" onClick={()=>handleShortenedUrlClick(item.shortenedURL)} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
+                    <a href={`https://url-shortner-backend-zltz.onrender.com/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
                   </td>
+
                 </tr>
               ))}
             </tbody>
