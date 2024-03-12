@@ -4,11 +4,9 @@ import './styles.css';
 const MainPage = () => {
   const [URL, setUrl] = useState('');
   const [shortenedURL, setShortenedURL] = useState('');
-  // const [domain, setDomain] = useState('');
   const [urlList, setUrlList] = useState([]);
 
   useEffect(() => {
-    // Retrieve data from localStorage on component mount
     const storedUrls = JSON.parse(localStorage.getItem('urlList'));
     if (storedUrls) {
       setUrlList(storedUrls);
@@ -36,7 +34,6 @@ const MainPage = () => {
         setShortenedURL(data.new_url);
         const newUrlList = [...urlList, { domain: domain, shortenedURL: data.new_url }];
         setUrlList(newUrlList);
-        // Store updated data in localStorage
         localStorage.setItem('urlList', JSON.stringify(newUrlList));
       } else {
         console.error('Error:', response.statusText);
