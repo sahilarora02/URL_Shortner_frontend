@@ -43,8 +43,8 @@ const MainPage = () => {
     }
   };
 
-  const handleShortenedUrlClick = () => {
-    window.location.href = `https://url-shortner-backend-zltz.onrender.com/${shortenedURL}`;
+  const handleShortenedUrlClick = (id) => {
+    window.location.href = `https://url-shortner-backend-zltz.onrender.com/${id}`;
   };
 
   return (
@@ -64,7 +64,7 @@ const MainPage = () => {
           <div className="shortened-url-container">
             <p className="short-url-text">
               Shortened URL :
-              <a href="#" onClick={handleShortenedUrlClick} target="_blank" rel="noopener noreferrer" className="shortened-url">
+              <a href="#" onClick={()=>handleShortenedUrlClick(shortenedURL)} target="_blank" rel="noopener noreferrer" className="shortened-url">
                 {shortenedURL}
               </a>
             </p>
@@ -85,7 +85,7 @@ const MainPage = () => {
                 <tr key={index}>
                   <td>{item.domain}</td>
                   <td>
-                    <a href={`http://localhost:8001/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
+                    <a href="#" onClick={()=>handleShortenedUrlClick(item.shortenedURL)} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
                   </td>
                 </tr>
               ))}
