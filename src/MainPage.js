@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
-import './styles.css'; // Import the CSS file where you'll define the extracted Tailwind classes
+import React, { useState, useEffect } from 'react';
+import './styles.css';
 
 const MainPage = () => {
   const [URL, setUrl] = useState('');
   const [shortenedURL, setShortenedURL] = useState('');
+  // const [domain, setDomain] = useState('');
+  const [urlList, setUrlList] = useState([]);
+
+  useEffect(() => {
+    // Retrieve data from localStorage on component mount
+    const storedUrls = JSON.parse(localStorage.getItem('urlList'));
+    if (storedUrls) {
+      setUrlList(storedUrls);
+    }
+  }, []);
+
+  function extractDomain(url) {
+    let domain = url.replace(/(^\w+:|^)\/\//, '');
+    domain = domain.split('/')[0];
+    return domain;
+  }
 
   const handleSubmit = async () => {
     try {
@@ -15,15 +31,24 @@ const MainPage = () => {
         body: JSON.stringify({ URL }),
       });
       if (response.ok) {
+      const domain =   extractDomain(URL);
         const data = await response.json();
-        setShortenedURL(data.new_url); 
+        setShortenedURL(data.new_url);
+        const newUrlList = [...urlList, { domain: domain, shortenedURL: data.new_url }];
+        setUrlList(newUrlList);
+        // Store updated data in localStorage
+        localStorage.setItem('urlList', JSON.stringify(newUrlList));
       } else {
         console.error('Error:', response.statusText);
-      } 
+      }
     } catch (error) {
-      console.error('Error :', error.message);
+      console.error('Error:', error.message);
     }
-  }
+  };
+
+  const handleShortenedUrlClick = () => {
+    window.location.href = `https://url-shortner-backend-zltz.onrender.com/${shortenedURL}`;
+  };
 
   return (
     <div className="main-container">
@@ -40,13 +65,40 @@ const MainPage = () => {
         </div>
         {shortenedURL && (
           <div className="shortened-url-container">
-            <a href={shortenedURL} target="_blank" rel="noopener noreferrer" className="shortened-url">{shortenedURL}</a>
+            <p className="short-url-text">
+              Shortened URL :
+              <a href="#" onClick={handleShortenedUrlClick} target="_blank" rel="noopener noreferrer" className="shortened-url">
+                {shortenedURL}
+              </a>
+            </p>
           </div>
         )}
+
+        <div className="table-container">
+          <h2>Domains and URLs</h2>
+          <table className="url-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Shortened URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              {urlList.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.domain}</td>
+                  <td>
+                    <a href={`http://localhost:8001/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 function LinkIcon(props) {
   return (

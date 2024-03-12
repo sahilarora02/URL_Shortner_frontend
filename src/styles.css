@@ -88,14 +88,67 @@
     border-radius: 0.25rem;
   }
   
-.shortened-url-container {
-  margin-top: 20px;
+  .shortened-url-container {
+    margin-top: 20px;
+  }
+  
+  .shortened-url {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none; 
+    margin-left: 10px;
+  }
+  .short-url-text{
+    color: 'white';
+    
+  }
+  .shortened-url:hover {
+    background-color: #dacec5;
+    color: #bb3a3a;
+    cursor: pointer;
+  }
+  /* Add this to your existing styles.css file */
+
+.table-container {
+  margin-top: 40px;
+  width: 80%;
+  margin: auto;
 }
 
-.shortened-url {
+.url-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.url-table th,
+.url-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.url-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.url-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.url-table tbody tr:hover {
   background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
+}
+
+.url-table a {
   color: #333;
+  text-decoration: none;
+}
+
+.url-table a:hover {
+  text-decoration: underline;
+  color: #555;
 }
