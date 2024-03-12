@@ -14,9 +14,12 @@ const MainPage = () => {
         },
         body: JSON.stringify({ URL }),
       });
-
-      const data = await response.json();
-      setShortenedURL(data.new_url); // Update state with the shortened URL
+      if (response.ok) {
+        const data = await response.json();
+        setShortenedURL(data.new_url); 
+      } else {
+        console.error('Error:', response.statusText);
+      } 
     } catch (error) {
       console.error('Error :', error.message);
     }
