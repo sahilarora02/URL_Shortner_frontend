@@ -85,12 +85,13 @@ const MainPage = () => {
                 <tr key={index}>
                   <td>{item.domain}</td>
                   <td>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href={`https://url-shortner-backend-zltz.onrender.com/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
                   </td>
-
                 </tr>
               ))}
             </tbody>
+
           </table>
         </div>
       </div>
