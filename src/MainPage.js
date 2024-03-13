@@ -21,7 +21,7 @@ const MainPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('https://url-shortner-backend-zltz.onrender.com/url', {
+      const response = await fetch('https://linkzr.onrender.com/url', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,8 +60,8 @@ const MainPage = () => {
           <div className="shortened-url-container">
             <p className="short-url-text">
               Shortened URL :
-              <a href={`https://url-shortner-backend-zltz.onrender.com/${shortenedURL}`} target="_blank" rel="noopener noreferrer" className="shortened-url">
-                {shortenedURL}
+              <a href={`https://linkzr.onrender.com/${shortenedURL}`} target="_blank" rel="noopener noreferrer" className="shortened-url">
+              https://linkzr.onrender.com/{shortenedURL}
               </a>
             </p>
           </div>
@@ -82,7 +82,7 @@ const MainPage = () => {
                   <td>{item.domain}</td>
                   <td>
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={`https://url-shortner-backend-zltz.onrender.com/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">{item.shortenedURL}</a>
+                    <a href={`https://linkzr.onrender.com/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">https://linkzr.onrender.com/{item.shortenedURL}</a>
                   </td>
                 </tr>
               ))}
