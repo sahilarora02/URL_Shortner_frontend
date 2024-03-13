@@ -35,6 +35,7 @@ const MainPage = () => {
         const newUrlList = [...urlList, { domain: domain, shortenedURL: data.new_url }];
         setUrlList(newUrlList);
         localStorage.setItem('urlList', JSON.stringify(newUrlList));
+        setUrl("")
       } else {
         console.error('Error:', response.statusText);
       }
