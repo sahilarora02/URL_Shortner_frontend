@@ -152,3 +152,17 @@
   text-decoration: underline;
   color: #555;
 }
+.copy-button {
+  background-color: #ff8c37;
+  color: #fff;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.copy-button:hover {
+  background-color: #dacec5;
+  color: #bb3a3a;
+}

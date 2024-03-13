@@ -43,6 +43,13 @@ const MainPage = () => {
       console.error('Error:', error.message);
     }
   };
+
+  const handleCopyClick = (url) => {
+    navigator.clipboard.writeText(url)
+      .then(() => alert('URL copied to clipboard'))
+      .catch((error) => console.error('Error copying URL:', error));
+  };
+
   return (
     <div className="main-container">
       <div className="content-container">
@@ -60,9 +67,10 @@ const MainPage = () => {
           <div className="shortened-url-container">
             <p className="short-url-text">
               Shortened URL :
-              <a href={`https://linkzr.onrender.com/${shortenedURL}`} target="_blank" rel="noopener noreferrer" className="shortened-url">
-              https://linkzr.onrender.com/{shortenedURL}
-              </a>
+              <span className="shortened-url">
+                https://linkzr.onrender.com/{shortenedURL}
+                <button className="copy-button" onClick={() => handleCopyClick(`https://linkzr.onrender.com/${shortenedURL}`)}>Copy</button>
+              </span>
             </p>
           </div>
         )}
@@ -81,13 +89,14 @@ const MainPage = () => {
                 <tr key={index}>
                   <td>{item.domain}</td>
                   <td>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={`https://linkzr.onrender.com/${item.shortenedURL}`} target="_blank" rel="noopener noreferrer">https://linkzr.onrender.com/{item.shortenedURL}</a>
+                    <span>
+                      https://linkzr.onrender.com/{item.shortenedURL}
+                      <button className="copy-button" onClick={() => handleCopyClick(`https://linkzr.onrender.com/${item.shortenedURL}`)}>Copy</button>
+                    </span>
                   </td>
                 </tr>
               ))}
             </tbody>
-
           </table>
         </div>
       </div>
