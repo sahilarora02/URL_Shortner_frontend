@@ -64,7 +64,7 @@ const MainPage = () => {
           <div className="shortened-url-container">
             <p className="short-url-text">
               Shortened URL :
-              <a href="#" onClick={() => handleShortenedUrlClick(shortenedURL)} target="_blank" rel="noopener noreferrer" className="shortened-url">
+              <a onClick={() => handleShortenedUrlClick(shortenedURL)} target="_blank" rel="noopener noreferrer" className="shortened-url">
                 {shortenedURL}
               </a>
             </p>
