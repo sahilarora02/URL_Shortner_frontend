@@ -64,7 +64,7 @@ const MainPage = () => {
           <div className="shortened-url-container">
             <p className="short-url-text">
               Shortened URL :
-              <a onClick={() => handleShortenedUrlClick(shortenedURL)} target="_blank" rel="noopener noreferrer" className="shortened-url">
+              <a href={`https://url-shortner-backend-zltz.onrender.com/${shortenedURL}`} target="_blank" rel="noopener noreferrer" className="shortened-url">
                 {shortenedURL}
               </a>
             </p>
