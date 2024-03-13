@@ -42,11 +42,6 @@ const MainPage = () => {
       console.error('Error:', error.message);
     }
   };
-
-  const handleShortenedUrlClick = (id) => {
-    window.location.href = `https://url-shortner-backend-zltz.onrender.com/${id}`;
-  };
-
   return (
     <div className="main-container">
       <div className="content-container">
